@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crystal Collectors</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="header">
+        <h1><i class="fa fa-diamond" aria-hidden="true"></i>Crystal Collector</h1>
+    </div>
+    <div id="container">
+        <div id="instructions">
+            <p>You will be given a random number at the start of the game.</p>
+            <br>
+            <p>There will be four crystals located below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
+            <br>
+            <p>You win the the game by matching your total score to the assigned random number. However, you lose the game if your total score goes over the random number.</p>
+            <br>
+            <p>The value of each crystal is hidden to you, and you'll only find out its value after clicking on it.</p>
+            <br>
+            <p>Please note that, each time the game starts, the value of the crystals will change.</p>
+        </div>
+        <ul id="scoreBoard">
+            <li id="randomNumber"></li>
+            <li id="winTotal"></li>
+            <li id="lostTotal"></li>
+        </ul>
+        <ul id="crystals"></ul>
+        <div id="scoreCounter">
+            <h1 id="currentScore"></h1>
+        </div>
+    </div>
+    <div id="footer">
+        <ul>
+            <li>Background Courtesy of <a href="https://www.subtlepatterns.com/" target="_blank">SubtlePatterns.com</a></li>
+            <li>Font Courtesy of <a href="https://fonts.google.com/">Google Fonts</a></li>
+        </ul>
+    </div>
+    <script src="assets/javascript/game.js"></script>
+</body>
+</html>
