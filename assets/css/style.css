@@ -17,7 +17,7 @@ div#header{
     background-color: rgba(0,0,0,0.6);
     display: block;
     flex: none;
-    height: 140px;
+    height: 110px;
     min-width: 100%;
     order: 1;
     width: 100%;
@@ -30,7 +30,7 @@ div#header h1{
     font-family: 'Playfair Display', Georgia, Times, 'Times New Roman', serif;
     font-size: 3.5em;
     letter-spacing: 0.1em;
-    line-height: 140px;
+    line-height: 110px;
     text-align: center;
     user-select: none;
 }
@@ -62,7 +62,7 @@ div#container div#instructions p{
     color: #ffffff;
     font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1.1em;
-    line-height: 1.5em;
+    line-height: 1.3em;
     text-align: left;
 }
 
@@ -82,35 +82,39 @@ div#container ul#scoreBoard li{
     color: #ffffff;
     display: inline-block;
     font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 1.1em;
+    font-size: 16px;
     height: 125px;
     line-height: 125px;
+    position: relative;
     text-align: center;
     width: 250px;
 }
 
-div#container ul#scoreBoard li::before{
+div#container ul#scoreBoard li::after{
     color: #ffffff;
     font-family: 'Playfair Display', Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.6em;
-    line-height: 1.5;
+    font-size: 24px;
+    left: 0.4em;
+    line-height: 1;
+    position: absolute;
+    top: 0.4em;
 }
 
-div#container ul#scoreBoard li#randomNumber::before{
+div#container ul#scoreBoard li#randomNumber::after{
     content: 'Target:'
 }
 
-div#container ul#scoreBoard li#winTotal::before{
+div#container ul#scoreBoard li#winTotal::after{
     content: 'Wins:'
 }
 
-div#container ul#scoreBoard li#lostTotal::before{
+div#container ul#scoreBoard li#loseTotal::after{
     content: 'Losses:'
 }
 
 /* Crystal Section */
 
-div#container ul#crystal{
+div#container ul#crystals{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -123,8 +127,37 @@ div#container ul#crystals li{
     background-color: rgba(0,0,0,0.6);
     display: inline-block;
     height: 125px;
-    margin: 0 5em;
+    margin: 0 1em;
     width: 125px;    
+}
+
+div#container ul#crystals li i{
+    display: block;
+    font-size: 48px;
+    line-height: 125px;
+    cursor: pointer;
+    text-align: center;
+    width: 125px;
+}
+
+div#container ul#crystals li:nth-child(1){
+    color: white;
+    order: 1;
+}
+
+div#container ul#crystals li:nth-child(2){
+    color: red;
+    order: 2;
+}
+
+div#container ul#crystals li:nth-child(3){
+    color: cyan;
+    order: 3;
+}
+
+div#container ul#crystals li:nth-child(4){
+    color: yellow;
+    order: 4;
 }
 
 /* Score Counter */
@@ -133,17 +166,30 @@ div#container div#scoreCounter{
     background-color: rgba(0,0,0,0.6);
     display: block;
     height: 125px;
-    margin: 0 auto;
+    margin: 2em auto;
+    position: relative;
     width: 250px;    
 }
 
-div#container div#scoreCounter::before{
-    content: 'Current Score:';
+div#container div#scoreCounter::after{
+    content: 'Score:';
     color: #ffffff;
     font-family: 'Playfair Display', Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.6em;
-    line-height: 1.5;
-    margin: 0 0.3em;  
+    font-size: 24px;
+    left: 0.4em;
+    line-height: 1;  
+    position: absolute;
+    top: 0.4em;
+}
+
+div#container div#scoreCounter h1#currentScore{
+    color: #ffffff;
+    font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    height: 125px;
+    line-height: 125px;
+    text-align: center;
 }
 
 /* Footer Tag */

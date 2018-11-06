@@ -21,6 +21,16 @@ var currentScore = $("#currentScore");
 // The actual game begins here, after the page loads everything
 $(document).ready(function() {
 
-    // Our game starts by setting the random number 'target' for the player
+    // Our game starts by setting the interface, including target score
     $(targetNumber).html(rnValue);
+    $(totalWins).html(0);
+    $(totalLosses).html(0);
+    $(currentScore).html(0);
+
+    // Then, we assign a random value to each of the four crystals that we have
+    for (var i = 1; i < 5; i+1) {
+        var targetCrystal = $(crystalSection).child[i];
+        var pointValue = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+        targetCrystal.attr("value",pointValue);
+    };
 });
