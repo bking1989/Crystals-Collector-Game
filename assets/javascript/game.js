@@ -31,15 +31,10 @@ $(document).ready(function() {
     $(currentScore).html(scoreCounter);
 
     // Then, we assign a random value to each of the four crystals that we have
-    $("#crystalOne").data("value", 1);
-    $("#crystalTwo").data("value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-    $("#crystalThree").data("value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-    $("#crystalFour").data("value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    $("#crystalOne").attr("data-value", 1);
+    $("#crystalTwo").attr("data-value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    $("#crystalThree").attr("data-value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    $("#crystalFour").attr("data-value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
 
     // Whenever a crystal is clicked by the player, the value is added to the score
-
-    $(".crystalClick").on("click", function() {
-        var addedPoints = $(this).data("value");
-        $(currentScore).html(addedPoints + scoreCounter);
-    });
 });
