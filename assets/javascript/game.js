@@ -18,6 +18,9 @@ var crystalSection = $("#crystals");
 // The current score that the user has
 var currentScore = $("#currentScore");
 
+// A counter to keep track of the score
+var scoreCounter = 0;
+
 // The actual game begins here, after the page loads everything
 $(document).ready(function() {
 
@@ -25,12 +28,18 @@ $(document).ready(function() {
     $(targetNumber).html(rnValue);
     $(totalWins).html(0);
     $(totalLosses).html(0);
-    $(currentScore).html(0);
+    $(currentScore).html(scoreCounter);
 
     // Then, we assign a random value to each of the four crystals that we have
-    for (var i = 1; i < 5; i+1) {
-        var targetCrystal = $(crystalSection).child[i];
-        var pointValue = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-        targetCrystal.attr("value",pointValue);
-    };
+    $("#crystalOne").data("value", 1);
+    $("#crystalTwo").data("value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    $("#crystalThree").data("value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    $("#crystalFour").data("value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+
+    // Whenever a crystal is clicked by the player, the value is added to the score
+
+    $(".crystalClick").on("click", function() {
+        var addedPoints = $(this).data("value");
+        $(currentScore).html(addedPoints + scoreCounter);
+    });
 });

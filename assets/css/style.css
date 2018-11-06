@@ -208,7 +208,7 @@ div#footer{
 div#footer ul{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     list-style-position: inside;
     list-style-type: none;
     margin: 0 auto;
@@ -219,13 +219,16 @@ div#footer ul{
 div#footer ul:first-child{
     align-self: flex-start;
     order: 1;
-    text-align: left;
+}
+
+div#footer ul:nth-child(2){
+    align-self: auto;
+    order: 2;
 }
 
 div#footer ul:last-child{
     align-self: flex-end;
-    order: 2;
-    text-align: right;
+    order: 3;
 }
 
 div#footer ul li{
