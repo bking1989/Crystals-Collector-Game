@@ -63,6 +63,7 @@ $(document).ready(function() {
         if (parseInt($(currentScore).html()) == parseInt($(targetScore).html())) {
             // If the player matches the target, the win counter goes up, the crystal values are randomized, and the game restarts
             alert("Congratulations! You met your target! Play again?");
+            var randomNumber =  Math.floor(Math.random() * (120 - 19 + 1)) + 19;
             $(targetScore).html(randomNumber);
             winCounter++;
             $(totalWins).html(winCounter);
@@ -81,6 +82,7 @@ $(document).ready(function() {
         } else if (parseInt($(currentScore).html()) > parseInt($(targetScore).html())) {
             // If the player exceeds the target, the lose counter goes up, the crystal values are randomized, and the game restarts
             alert("Uh oh! You went over the target score! Try again?");
+            var randomNumber =  Math.floor(Math.random() * (120 - 19 + 1)) + 19;
             $(targetScore).html(randomNumber);
             loseCounter++;
             $(totalLosses).html(loseCounter);

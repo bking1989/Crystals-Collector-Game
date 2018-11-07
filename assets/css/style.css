@@ -63,8 +63,11 @@ div#header h1{
 
 div#header i{
     -moz-animation: crystal 10s infinite;
+    -moz-animation-delay: 3s;
     -webkit-animation: crystal 10s infinite;
+    -webkit-animation-delay: 3s;
     animation: crystal 10s infinite;
+    animation-delay: 3s;
     color: #ffffff;
     margin: 0 0.5em 0 0;
 }
