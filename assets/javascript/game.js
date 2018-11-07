@@ -32,7 +32,7 @@ var currentScore = $("#currentScore");
 var currentCounter;
 
 $(document).ready(function() {
-    // Game interface is prepared
+    // The game would start here, and begins with setting the scoreboard
     $(targetScore).html(randomNumber);
     winCounter = 0;
     $(totalWins).html(winCounter);
@@ -41,45 +41,61 @@ $(document).ready(function() {
     currentCounter = 0;
     $(currentScore).html(currentCounter);
 
-    // Next, all but one of the crystals are given a random value between 1 and 12
-    var valueTwo = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    var valueThree = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    var valueFour = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+    // Next, we assign values to the crystals
+    var valueOne = 1;
+    var valueTwo = Math.floor(Math.random() * 12) + 1;
+    var valueThree = Math.floor(Math.random() * 12) + 1;
+    var valueFour = Math.floor(Math.random() * 12) + 1;
 
-    $(crystalOne).data("value", 1);
-    $(crystalTwo).data("value", valueTwo);
-    $(crystalThree).data("value", valueThree);
-    $(crystalFour).data("value", valueFour);
+    $(crystalOne).data("value",valueOne);
+    $(crystalTwo).data("value",valueTwo);
+    $(crystalThree).data("value",valueThree);
+    $(crystalFour).data("value",valueFour);
 
-    // When one of the crystals is clicked, their value is added to the current score
+    // When you click on a crystal, the value is added to the total score
     $(".crystalClick").on("click", function() {
         var pointValue = $(this).data("value");
-        var newScore = currentCounter + pointValue;
-        currentCounter = newScore;
-        $(currentScore).html(currentCounter);
+        var oldScore = parseInt($(currentScore).html());
+        var newScore = pointValue + oldScore;
+        $(currentScore).html(newScore);
 
-        // After the score has been updated, it is compared to the target score
-        if (currentCounter == randomNumber) {
-            // If they meet the score exactly, they win, win total is updated, and it restarts
-            alert("Congratulations, you win!");
-            var randomNumber =  Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+        // This if/else conditional will compare the new score to see if the player meets or exceeds the target score
+        if (parseInt($(currentScore).html()) == parseInt($(targetScore).html())) {
+            // If the player matches the target, the win counter goes up, the crystal values are randomized, and the game restarts
+            alert("Congratulations! You met your target! Play again?");
             $(targetScore).html(randomNumber);
             winCounter++;
             $(totalWins).html(winCounter);
-            loseCounter = 0;
-            $(totalLosses).html(loseCounter);
             currentCounter = 0;
             $(currentScore).html(currentCounter);
-        } else if (currentCounter > randomNumber) {
-            alert("Uh oh, yo went over! You lose!");
-            var randomNumber =  Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+
+            var valueOne = 1;
+            var valueTwo = Math.floor(Math.random() * 12) + 1;
+            var valueThree = Math.floor(Math.random() * 12) + 1;
+            var valueFour = Math.floor(Math.random() * 12) + 1;
+
+            $(crystalOne).data("value",valueOne);
+            $(crystalTwo).data("value",valueTwo);
+            $(crystalThree).data("value",valueThree);
+            $(crystalFour).data("value",valueFour);
+        } else if (parseInt($(currentScore).html()) > parseInt($(targetScore).html())) {
+            // If the player exceeds the target, the lose counter goes up, the crystal values are randomized, and the game restarts
+            alert("Uh oh! You went over the target score! Try again?");
             $(targetScore).html(randomNumber);
-            winCounter = 0;
-            $(totalWins).html(winCounter);
             loseCounter++;
             $(totalLosses).html(loseCounter);
             currentCounter = 0;
             $(currentScore).html(currentCounter);
+
+            var valueOne = 1;
+            var valueTwo = Math.floor(Math.random() * 12) + 1;
+            var valueThree = Math.floor(Math.random() * 12) + 1;
+            var valueFour = Math.floor(Math.random() * 12) + 1;
+
+            $(crystalOne).data("value",valueOne);
+            $(crystalTwo).data("value",valueTwo);
+            $(crystalThree).data("value",valueThree);
+            $(crystalFour).data("value",valueFour);
         };
     });
 });

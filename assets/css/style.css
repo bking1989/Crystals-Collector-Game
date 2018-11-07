@@ -10,6 +10,32 @@ body{
     width: 100vw;
 }
 
+/* CSS Animation */
+
+@-moz-keyframes crystal{
+    0% {color: white;}
+    25% {color: red;}
+    50% {color: cyan;}
+    75% {color: yellow;}
+    100% {color: white;}
+}
+
+@-webkit-keyframes crystal{
+    0% {color: white;}
+    25% {color: red;}
+    50% {color: cyan;}
+    75% {color: yellow;}
+    100% {color: white;}
+}
+
+@keyframes crystal{
+    0% {color: white;}
+    25% {color: red;}
+    50% {color: cyan;}
+    75% {color: yellow;}
+    100% {color: white;}
+}
+
 /* Header Tag */
 
 div#header{
@@ -36,6 +62,9 @@ div#header h1{
 }
 
 div#header i{
+    -moz-animation: crystal 10s infinite;
+    -webkit-animation: crystal 10s infinite;
+    animation: crystal 10s infinite;
     color: #ffffff;
     margin: 0 0.5em 0 0;
 }
