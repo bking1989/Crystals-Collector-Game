@@ -1,44 +1,85 @@
 // Global variables will be defined here
 
-// Target score for the player
-var targetNumber = $("#randomNumber");
+// Target Score
+var targetScore = $("#randomNumber");
 
-// Random value generator for our target score
-var rnValue = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+// Random Number Generator for Target Score
 
-// Total number of wins
+var randomNumber =  Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+
+// Total Number of Wins
 var totalWins = $("#winTotal");
 
-// Total number of losses
+// Total Wins Counter
+var winCounter;
+
+// Total Number of Losses
 var totalLosses = $("#loseTotal");
 
-// The area where the crystals are going to go
-var crystalSection = $("#crystals");
+// Total Losses Counter
+var loseCounter;
 
-// The current score that the user has
+// The Four Crystals
+var crystalOne = $("#crystalOne");
+var crystalTwo = $("#crystalTwo");
+var crystalThree = $("#crystalThree");
+var crystalFour = $("#crystalFour");
+
+// Current Score
 var currentScore = $("#currentScore");
 
-// A counter to keep track of the score
-var scoreCounter = 0;
+// Current Score Counter
+var currentCounter;
 
-// These are the values of our four crystals 
-
-$("#crystalOne").attr("data-value", 1);
-$("#crystalTwo").attr("data-value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-$("#crystalThree").attr("data-value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-$("#crystalFour").attr("data-value", Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-
-var crystalOne = parseInt($("#crystalOne").attr("data-value"));
-var crystalTwo = parseInt($("#crystalTwo").attr("data-value"));
-var crystalThree = parseInt($("#crystalThree").attr("data-value"));
-var crystalFour = parseInt($("#crystalFour").attr("data-value"));
-
-// The actual game begins here, after the page loads everything
 $(document).ready(function() {
+    // Game interface is prepared
+    $(targetScore).html(randomNumber);
+    winCounter = 0;
+    $(totalWins).html(winCounter);
+    loseCounter = 0;
+    $(totalLosses).html(loseCounter);
+    currentCounter = 0;
+    $(currentScore).html(currentCounter);
 
-    // Our game starts by setting the interface, including target score
-    $(targetNumber).html(rnValue);
-    $(totalWins).html(0);
-    $(totalLosses).html(0);
-    $(currentScore).html(0);
+    // Next, all but one of the crystals are given a random value between 1 and 12
+    var valueTwo = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+    var valueThree = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+    var valueFour = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+
+    $(crystalOne).data("value", 1);
+    $(crystalTwo).data("value", valueTwo);
+    $(crystalThree).data("value", valueThree);
+    $(crystalFour).data("value", valueFour);
+
+    // When one of the crystals is clicked, their value is added to the current score
+    $(".crystalClick").on("click", function() {
+        var pointValue = $(this).data("value");
+        var newScore = currentCounter + pointValue;
+        currentCounter = newScore;
+        $(currentScore).html(currentCounter);
+
+        // After the score has been updated, it is compared to the target score
+        if (currentCounter == randomNumber) {
+            // If they meet the score exactly, they win, win total is updated, and it restarts
+            alert("Congratulations, you win!");
+            var randomNumber =  Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+            $(targetScore).html(randomNumber);
+            winCounter++;
+            $(totalWins).html(winCounter);
+            loseCounter = 0;
+            $(totalLosses).html(loseCounter);
+            currentCounter = 0;
+            $(currentScore).html(currentCounter);
+        } else if (currentCounter > randomNumber) {
+            alert("Uh oh, yo went over! You lose!");
+            var randomNumber =  Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+            $(targetScore).html(randomNumber);
+            winCounter = 0;
+            $(totalWins).html(winCounter);
+            loseCounter++;
+            $(totalLosses).html(loseCounter);
+            currentCounter = 0;
+            $(currentScore).html(currentCounter);
+        };
+    });
 });
