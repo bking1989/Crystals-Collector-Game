@@ -1,6 +1,6 @@
 # Unit 4 Game
 
-This is an intereactive game, called Crystals Collector, made using both basic JavaScript and the JavaScript library jQuery. 
+This is an intereactive game, called Crystals Collector, made using both basic JavaScript and the JavaScript library jQuery. If you'd like to try the game for yourself, it can be found [here](https://bking1989.github.io/Unit-4-Game/).
 
 The concept is that the player is given a random number as a 'target score', and they want to reach this score by clicking on the four crystals that are displayed beneath the scoreboard. The crystals have random values ranging from 0 to 12. However, the player doesn't know the value until the crystal is clicked on, and the player can lose by going over the target. Whether they win or lose, the game will reset, afterwards.
 
